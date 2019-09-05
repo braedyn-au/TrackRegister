@@ -1,5 +1,7 @@
 % Take points from Trackmate and return points from each individual track
 % ---------------------------------------------------------------------
+% Braedyn Au
+%
 % Load the XML file using parseXML function
 % Load the image using image function
 % Calculate tform matrix 
@@ -44,6 +46,7 @@ for row = 1:nrows
 end
 disp('Total tracks found: ');
 disp(i);
+end
 
 % Now we have a cell with each row representing a different track's points
 

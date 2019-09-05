@@ -1,5 +1,6 @@
 function regPoints = register( trackPoints, movingPoints, fixedPoints )
 %REGISTER Registers tracks points to super res image
+% Braedyn Au
 %   Takes fiducial points currently from user input 
 %   Use ImageJ or SMAP to find the points for now
 %   Display the super res image and tracks and find 

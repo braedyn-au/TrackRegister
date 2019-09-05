@@ -1,5 +1,6 @@
 function overlayed = overlay(regPoints,img)
-%OVERLAY Summary of this function goes here
+%OVERLAY overlays tracks onto super res image
+% Braedyn Au
 % Rainbow lines does not seem to work when overlayed on the grayscale
 % image :( ---FIXED
 % Convert the grayscale image to pseudo rgb

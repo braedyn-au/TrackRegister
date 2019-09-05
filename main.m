@@ -1,6 +1,6 @@
 % Take points from Trackmate, register them to super res image, and then
 % overlay
-% Braedyn Au August 2019
+% Braedyn Au Sept 2019
 % ---------------------------------------------------------------------
 % Load the XML file using parseXML and extractpoints functions
 % Load the image using loadimage function
@@ -24,12 +24,19 @@
 % be innacurate, you can find the points in the localization list first and
 % input them as variables.
 
-disp("Select XML file");
-[xmlfile, tracksxmlpath] = uigetfile('*.xml','Load XML file');
-disp("Loading XML file...");
-tracks = parseXML(fullfile(tracksxmlpath,xmlfile));
+disp("Select XML or CSV track file");
+[file, trackspath] = uigetfile({'*.xml;*.csv'},'Load XML or CSV track file');
+disp("Loading track file...");
 conversion = input('Track unit conversion factor to pixels(tracks may not be in pixel units): ');
-trackPoints = extractpoints(tracks,conversion);
+name = strsplit(file,'.');
+if name{2} == 'xml'
+    tracks = parseXML(fullfile(trackspath,file));
+    trackPoints = extractpoints(tracks,conversion);
+
+    
+elseif name{2} == 'csv'
+    trackPoints = parseCSV(fullfile(trackspath,file),conversion);
+end 
 
 disp("Select image file");
 [imgfile, imgpath] = uigetfile({'*.tif;*.jpg;*.png'}, 'Load Image');
