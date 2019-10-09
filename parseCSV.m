@@ -15,6 +15,7 @@ for row = 2:(size(data,1)-1)
     % data(row,n) where n is the column of trajectories
     % IF CHANGING THIS MAKE SURE TO CHANGE THE BOTTOM LINE TOO
     if data(row,1) ~= data(row+1,1) 
+        % data(start:row,n) where n is the column with the data to be read
         xpoints = [xpoints,data(start:row,3)].'./conversion; % x column
         ypoints = [ypoints,data(start:row,4)].'./conversion; % y column
         zpoints = [zpoints,data(start:row,5)].'./conversion; % z column
