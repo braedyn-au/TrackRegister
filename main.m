@@ -24,9 +24,9 @@
 % be innacurate, you can find the points in the localization list first and
 % input them as variables.
 
-disp("Select XML or CSV track file");
+disp('Select XML or CSV track file');
 [file, trackspath] = uigetfile({'*.xml;*.csv'},'Load XML or CSV track file');
-disp("Loading track file...");
+disp('Loading track file...');
 conversion = input('Track unit conversion factor to pixels(tracks may not be in pixel units): ');
 name = strsplit(file,'.');
 if name{2} == 'xml'
@@ -35,30 +35,34 @@ if name{2} == 'xml'
 
     
 elseif name{2} == 'csv'
-    trackPoints = parseCSV(fullfile(trackspath,file),conversion);
+    % IF DATA DOES NOT START ON COL 1 THEN CHANGE HERE
+    col1 = 1;
+    disp('Reading from column');
+    disp(col1);
+    trackPoints = parseCSV(fullfile(trackspath,file),conversion,col1);
 end 
 
-disp("Select image file");
+disp('Select image file');
 [imgfile, imgpath] = uigetfile({'*.tif;*.jpg;*.png'}, 'Load Image');
-disp("Loading image...");
+disp('Loading image...');
 img = loadimage(fullfile(imgpath,imgfile));
 
-choice = "";
-while ~strcmp(choice,"select")&&~strcmp(choice,"input")
-    disp("Choose fiducial coordinate input type by typing your choice: input/select");
+choice = '';
+while ~strcmp(choice,'select')&&~strcmp(choice,'input')
+    disp('Choose fiducial coordinate input type by typing your choice: input/select');
     choice = input('-> ', 's');
     %choice = string(choice);
-    if choice == "select"
-        disp("Select fidcials on super res image");
-        disp("Press return/enter when done");
+    if choice == 'select'
+        disp('Select fidcials on super res image');
+        disp('Press return/enter when done');
         overlay(trackPoints,imcomplement(img));
         [fixedx,fixedy] = ginput;
         close;
         disp('Super Res Fiducial [x y] points');
         disp([fixedx,fixedy]);
 
-        disp("Select fiducials on tracks");
-        disp("Press return/enter when done");
+        disp('Select fiducials on tracks');
+        disp('Press return/enter when done');
         overlay(trackPoints,imcomplement(img));
         %ntracks = size(trackPoints,1);
         % minimum 3 points
@@ -82,7 +86,7 @@ while ~strcmp(choice,"select")&&~strcmp(choice,"input")
         disp('Track Fiducial [x y] points');
         disp([movingx,movingy]);
         break
-    elseif choice == "input"
+    elseif choice == 'input'
         disp('Input coordinates of fiducials on super res image: ');
         fixedx = transpose(input('Img X coordinates in []: '));
         fixedy = transpose(input('Img Y coordinates in []: '));
