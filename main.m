@@ -52,7 +52,8 @@ while ~strcmp(choice,'select')&&~strcmp(choice,'input')
     disp('Choose fiducial coordinate input type by typing your choice: input/select');
     choice = input('-> ', 's');
     %choice = string(choice);
-    if choice == 'select'
+    %if choice == 'select'
+    if strcmp(choice,'select')
         disp('Select fidcials on super res image');
         disp('Press return/enter when done');
         overlay(trackPoints,imcomplement(img));
@@ -86,7 +87,9 @@ while ~strcmp(choice,'select')&&~strcmp(choice,'input')
         disp('Track Fiducial [x y] points');
         disp([movingx,movingy]);
         break
-    elseif choice == 'input'
+    %elseif choice == 'input'
+    elseif strcmp(choice,'input')
+        disp('Input coordinates as [x1,x2,x3,...]');
         disp('Input coordinates of fiducials on super res image: ');
         fixedx = transpose(input('Img X coordinates in []: '));
         fixedy = transpose(input('Img Y coordinates in []: '));

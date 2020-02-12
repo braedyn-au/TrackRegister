@@ -3,7 +3,7 @@ function trackPoints = parseCSV(csvfile,conversion,col1)
 %   Braedyn Au
 
 %data = readmatrix(csvfile);
-data = dlmread(csvfile,',',1,col1); %skip the header of CSV file
+data = dlmread(csvfile,',',1,col1-1); %skip the header of CSV file while reading from col1
 trackPoints = {};
 start = 1; 
 for row = 1:(size(data,1)-1)
@@ -17,11 +17,11 @@ for row = 1:(size(data,1)-1)
     % IF CHANGING THIS MAKE SURE TO CHANGE THE BOTTOM LINE TOO
     if data(row,1) ~= data(row+1,1) 
         % data(start:row,n) where n is the column with the data to be read
-        xpoints = [xpoints,data(start:row,col1+2)].'./conversion; % x column
-        ypoints = [ypoints,data(start:row,col1+3)].'./conversion; % y column
-        zpoints = [zpoints,data(start:row,col1+4)].'./conversion; % z column
-        tpoints = [tpoints,data(start:row,col1+1)].'; % frames column
-        trackPoints(data(row,1),:) = {[xpoints;ypoints;zpoints;tpoints]}; 
+        xpoints = [xpoints,data(start:row,3)].'./conversion; % x column
+        ypoints = [ypoints,data(start:row,4)].'./conversion; % y column
+        zpoints = [zpoints,data(start:row,5)].'./conversion; % z column
+        tpoints = [tpoints,data(start:row,2)].'; % frames column
+        trackPoints(data(row,1),:) = {[xpoints;ypoints;zpoints;tpoints]};
         start = row + 1; % update starting point for next trajectory
     end
 end
