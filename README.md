@@ -16,11 +16,12 @@ Tested on Windows, Linux, and MacOS.
 
 # Installation <a name="installation"></a>
 
+
 All scripts are contained in this repository, no installation necessary outside of MATLAB. Image registration is done by running *main.m*.
 
 # Demo <a name="demo"></a>
 
-Dummy data is provided in *exampletracks1.csv* which contains tracks from Mosaic Tracker in CSV format, *190627-Jia-MagBeads_mag_002_Tracks.xml* which contains tracks from TrackMate in XML format, and *tip00-1_SCALED.tif* which is a TIFF image file.
+Dummy data is provided in the *data* folder. Notable datasets include *exampletracks1.csv* which contains tracks from Mosaic Tracker in CSV format, *190627-Jia-MagBeads_mag_002_Tracks.xml* which contains tracks from TrackMate in XML format, and *tip00-1_SCALED.tif* which is a TIFF image file.
 By running the script with one of the tracks and image file, the software will output the tracks registered and overlayed on the image which can be saved via MATLAB.
 
 # Instructions <a name="instructions"></a>
