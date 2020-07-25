@@ -3,11 +3,11 @@ Takes single particle tracks as either CSV from Mosaic Tracker or XML from Track
 
 Developed for https://www.biorxiv.org/content/10.1101/2020.03.30.016477v1
 
-- [Requirements] (#requirements)
-- [Installation] (#installation)
-- [Demo] (#demo)
-- [Instructions] (#instructions)
-- [License] (#license)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Demo](#demo)
+- [Instructions](#instructions)
+- [License](#license)
 
 # Requirements <a name="requirements"></a>
 
