@@ -11,7 +11,7 @@ Developed for https://www.biorxiv.org/content/10.1101/2020.03.30.016477v1
 
 # Requirements <a name="requirements"></a>
 
-MATLAB 2015 with Image Processing Toolbox installed.
+MATLAB with Image Processing Toolbox installed. (Tested on MATLAB 2016a)
 Tested on Windows, Linux, and MacOS.
 
 # Installation <a name="installation"></a>
